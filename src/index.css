@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+table {
+  table-layout: auto;
+  width: 100%;
+}
+
+thead {
+  width: 100%;
+  display: flex;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+}
+
+tr {
+  /* display: flex; */
+  width: 100%;
+}
+
+td,
+th {
+  padding: 16px;
+  text-align: left;
+  flex: 1;
+  word-wrap: break-word;
+}
