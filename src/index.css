@@ -5,6 +5,7 @@
 table {
   table-layout: auto;
   width: 100%;
+  height: min-content;
 }
 
 thead {
@@ -15,6 +16,7 @@ thead {
 tbody {
   display: flex;
   flex-direction: column;
+  overflow-y: hidden;
 }
 
 tr {

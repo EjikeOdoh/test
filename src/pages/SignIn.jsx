@@ -7,12 +7,12 @@ import { setLoggedIn } from "../redux/slices/tokenSlice";
 import { setUser } from "../redux/slices/userSlice";
 
 const SignIn = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [userData, setUserData] = useState({ email: "", password: "" });
 
-  const login = (e) => {
+  const login = async (e) => {
     e.preventDefault();
+
     const data = JSON.parse(localStorage.getItem("user"));
     if (data === null) {
       alert("Account does not exist");
@@ -24,7 +24,6 @@ const SignIn = () => {
     }
     if (userData.email === data.email) {
       if (userData.password === data.password) {
-        console.log("Odogwu");
         dispatch(setLoggedIn(true));
         dispatch(setUser(data));
       } else {

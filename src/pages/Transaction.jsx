@@ -2,45 +2,19 @@ import React, { useState, useEffect } from "react";
 import Add from "../assets/add.png";
 import Sort from "../assets/sort.png";
 import Stat from "../components/Stat";
-import TransactionRow from "../components/TransactionRow";
-
 import Table from "../components/Table";
-import axios from "axios";
 import MobileTable from "../components/MobileTable";
 import AddTrxModal from "../components/AddTrxModal";
+import { useSelector } from "react-redux";
+import { selectTransactions } from "../redux/slices/transactionSlice";
 
 const Transaction = () => {
-  const [data, setData] = useState([]);
+  const transactions = useSelector(selectTransactions);
+
   const [addModal, setAddModal] = useState(false);
 
   const showAddModal = () => setAddModal(true);
   const hideAddModal = () => setAddModal(false);
-
-  useEffect(() => {
-    const fetchTransactions = async () => {
-      const { data } = await axios.get(
-        "https://integrations.getravenbank.com/v1/accounts/transactions",
-        {
-          headers: {
-            Authorization:
-              "Bearer RVSEC-8bb756a159b787007fa50b556b45d11d0b49c0c0c0a7b47b3364fa7d094009d2b404a106a71103b9aecb33f73b82f5be-1662632092469",
-          },
-        }
-      );
-      const { transactions } = data.data;
-      console.log(transactions);
-
-      const statuses = ["Completed", "Pending", "Failed"];
-
-      const cleanData = transactions.map((x) => {
-        const status = statuses[Math.floor(Math.random() * statuses.length)];
-        return { ...x, status };
-      });
-      setData(cleanData);
-    };
-
-    fetchTransactions();
-  }, []);
 
   return (
     <div className="sm:px-20 px-6 w-full">
@@ -96,8 +70,8 @@ const Transaction = () => {
           <img src={Sort} />
         </button>
       </div>
-      <Table data={data} />
-      <MobileTable data={data} />
+      <Table data={transactions} />
+      <MobileTable data={transactions} />
       <AddTrxModal show={addModal} onClose={hideAddModal} />
     </div>
   );

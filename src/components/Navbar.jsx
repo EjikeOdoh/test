@@ -4,10 +4,14 @@ import Avatar from "../assets/avatar.png";
 import Query from "../assets/query.png";
 import Arrow from "../assets/arrow-down.png";
 import Menu from "../assets/menu.png";
+import { useSelector } from "react-redux";
+import { selectUser } from "../redux/slices/userSlice";
 
 const Navbar = ({ showMenu }) => {
   const location = window.location.href;
   const title = location.includes("transactions") ? "Transactions" : "Overview";
+
+  const user = useSelector(selectUser);
   return (
     <div className="flex items-center justify-between px-6 sm:px-12 py-9 sm:py-4">
       <div className="hidden sm:block">
@@ -28,7 +32,7 @@ const Navbar = ({ showMenu }) => {
         <button className="flex items-center gap-2">
           <img src={Avatar} />
 
-          <span className="hidden sm:block">Tee</span>
+          <span className="hidden sm:block">{user.fName}</span>
           <img src={Arrow} className="hidden sm:block" />
         </button>
       </div>
