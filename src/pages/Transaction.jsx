@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Add from "../assets/add.png";
 import Sort from "../assets/sort.png";
-import Filter from "../assets/sort.png";
+import Filter from "../assets/filter.png";
+import Down from "../assets/down.png";
+import Left from "../assets/left.png";
+import Right from "../assets/right.png";
 import Stat from "../components/Stat";
 import Table from "../components/Table";
 import MobileTable from "../components/MobileTable";
@@ -68,8 +71,18 @@ const Transaction = () => {
           />
         </div>
 
-        <div>
-          <button>
+        <div className="flex items-center justify-end gap-2">
+          <button className="flex items-center gap-2 border border-[#E4E4E7] p-2 rounded-md">
+            <img src={Filter} />
+            <span className="text-[#71717A] text-sm">Filters</span>
+            <img src={Down} />
+          </button>
+          <button className="flex items-center gap-2 border border-[#E4E4E7] p-2 rounded-md">
+            <img src={Left} />
+            <span className="text-[#71717A] text-sm">1- 10 of 240</span>
+            <img src={Right} />
+          </button>
+          <button className="sm:hidden">
             <img src={Sort} />
           </button>
         </div>
