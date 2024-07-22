@@ -27,8 +27,8 @@ const Table = ({ data = transactions }) => {
   };
 
   return (
-    <div className="w-full">
-      <table className="hidden sm:block">
+    <div className="w-full ">
+      <table className="hidden sm:block h-[400px] overflow-y-scroll">
         <thead>
           <tr className="w-full flex items-center">
             <th className="">Reference</th>

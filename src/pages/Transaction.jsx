@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Add from "../assets/add.png";
 import Sort from "../assets/sort.png";
+import Filter from "../assets/sort.png";
 import Stat from "../components/Stat";
 import Table from "../components/Table";
 import MobileTable from "../components/MobileTable";
@@ -63,12 +64,15 @@ const Transaction = () => {
           <input
             type="search"
             placeholder="Search Transactions"
-            className="h-10 border border-[#E4E4E7] rounded-md px-3 py-2 w-full"
+            className="h-10 border border-[#E4E4E7] rounded-md px-3 py-2 w-full sm:w-64"
           />
         </div>
-        <button>
-          <img src={Sort} />
-        </button>
+
+        <div>
+          <button>
+            <img src={Sort} />
+          </button>
+        </div>
       </div>
       <Table data={transactions} />
       <MobileTable data={transactions} />
