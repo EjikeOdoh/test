@@ -72,12 +72,12 @@ const Transaction = () => {
         </div>
 
         <div className="flex items-center justify-end gap-2">
-          <button className="flex items-center gap-2 border border-[#E4E4E7] p-2 rounded-md">
+          <button className="sm:flex items-center gap-2 border border-[#E4E4E7] p-2 rounded-md hidden">
             <img src={Filter} />
             <span className="text-[#71717A] text-sm">Filters</span>
             <img src={Down} />
           </button>
-          <button className="flex items-center gap-2 border border-[#E4E4E7] p-2 rounded-md">
+          <button className="sm:flex items-center gap-2 border border-[#E4E4E7] p-2 rounded-md hidden">
             <img src={Left} />
             <span className="text-[#71717A] text-sm">1- 10 of 240</span>
             <img src={Right} />
