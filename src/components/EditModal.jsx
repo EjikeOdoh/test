@@ -25,8 +25,14 @@ const EditModal = ({ show = true, onClose, children }) => {
 
           <form className="flex-1 flex flex-col justify-between">
             <div>
-              <Dropdown label="Transaction Direction" />
-              <Dropdown label="Status" />
+              <Dropdown
+                label="Transaction Direction"
+                options={["Debit", "Credit"]}
+              />
+              <Dropdown
+                label="Status"
+                options={["Success", "Pending", "Failed"]}
+              />
               <Input
                 label="Amount"
                 placeholder="Enter an amount"

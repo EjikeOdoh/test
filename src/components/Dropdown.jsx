@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Dropdown = ({ label, placeholder }) => {
+const Dropdown = ({ label, placeholder, options = [] }) => {
   const [value, setValue] = useState("");
   return (
     <div className="mb-4">
@@ -14,9 +14,13 @@ const Dropdown = ({ label, placeholder }) => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       >
-        <option>Odogwu</option>
-        <option>aburo</option>
-        <option>guyname</option>
+        {options.map((option) => {
+          return (
+            <option value={option} key={option}>
+              {option}
+            </option>
+          );
+        })}
       </select>
     </div>
   );
